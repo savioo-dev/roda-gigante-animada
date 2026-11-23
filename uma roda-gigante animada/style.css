@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.35), transparent 40%),
+    #c9dde8;
+}
+
+.projeto {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 20px;
+}
+
+h1 {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  color: #263746;
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.wheel {
+  border: 2px solid #111111;
+  border-radius: 50%;
+  position: relative;
+  height: 48vw;
+  width: 48vw;
+  max-width: 440px;
+  max-height: 440px;
+  animation: wheel 10s linear infinite;
+}
+
+.line {
+  background-color: #111111;
+  width: 50%;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+}
+
+.line:nth-of-type(2) {
+  transform: rotate(60deg);
+}
+.line:nth-of-type(3) {
+  transform: rotate(120deg);
+}
+.line:nth-of-type(4) {
+  transform: rotate(180deg);
+}
+.line:nth-of-type(5) {
+  transform: rotate(240deg);
+}
+.line:nth-of-type(6) {
+  transform: rotate(300deg);
+}
+
+.cabin {
+  background-color: #e63946;
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  border: 2px solid #111111;
+  transform-origin: 50% 0%;
+  animation: cabins 10s linear infinite;
+}
+
+.cabin:nth-of-type(1) {
+  right: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(2) {
+  right: 17%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(3) {
+  right: 67%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(4) {
+  left: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(5) {
+  left: 17%;
+  top: 7%;
+}
+.cabin:nth-of-type(6) {
+  right: 17%;
+  top: 7%;
+}
+
+@keyframes wheel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cabins {
+  0% {
+    transform: rotate(0deg);
+    background-color: #e63946;
+  }
+  25% {
+    background-color: #f4d35e;
+  }
+  50% {
+    background-color: #6a4c93;
+  }
+  75% {
+    background-color: #f4d35e;
+  }
+  100% {
+    transform: rotate(-360deg);
+    background-color: #e63946;
+  }
+}
+
+@media (max-width: 500px) {
+  .wheel {
+    height: 70vw;
+    width: 70vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel,
+  .cabin {
+    animation: none;
+  }
+}
